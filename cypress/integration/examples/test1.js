@@ -21,7 +21,17 @@ describe('Mi primera prueba',function(){
 
         //Eq, Contains y Click
         cy.get('.products').find('.product').eq(2).contains('ADD TO CART').click()
-        cy.get('.tada').click()
+
+        //Each
+        cy.get('.products').find('.product').each(($elemento,posicion,$lista)=>{
+
+            const nombre_articulo = $elemento.find('h4.product-name').text()
+
+            if(nombre_articulo.includes('Carrot')){
+                cy.wrap($elemento).find('button').click()
+            }
+            
+        })
 
     
     })
