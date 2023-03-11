@@ -1,0 +1,40 @@
+Pasos para crear un test:
+    -> Primero crearemos un nuevo bloque para iniciar nuestra prueba:
+        
+        describe('Mi primera prueba',function(){
+        })
+
+    -> Dentro de este bloque se especificarán todos y cada unos de los casos que tendrá nuestro test:
+
+        describe('Mi primera prueba',function(){
+            it('Mi primer caso de la prueba',function(){
+            })
+
+            it('Mi segundo caso de la prueba',function(){
+            })
+
+            etc...
+        })
+
+    -> Para abrir la URL del sitio web a testear, le pasaremos como parametro a la funcion 'visit' la dirección del sitio:
+
+        it('Mi primer caso de la prueba',function(){
+            
+            cy.visit('www.example.com')
+
+        })
+
+
+
+PowerShell:
+    -> node_modules/.bin/cypress run : Lanzará todos y cada uno de los test presentes en 'cypress/integration' enj Electron.
+    -> node_modules/.bin/cypress run --browser chrome: Se lanzarán los test en el navegador especificado.
+
+
+Carpetas de Cypress:
+
+- Fixtures: Aquí se almacenan los datos de prueba.
+- Integration: Esta carpeta se usa para almacenar nuestros casos de prueba.
+- Downloads: Contiene los plugins para modificar aspectos relacionados con los browsers.
+- Support: Es esta carpeta se pueden escribir comandos personalizados o métodos reutilizables.
+- Videos: Contendrá archivos multimedia de las diferentes pruebas realizadas.
