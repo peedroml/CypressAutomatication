@@ -16,14 +16,17 @@ describe('Mi primera prueba',function(){
         //Should
         cy.get('.product:visible').should('have.length',4)
 
+        //As
+        cy.get('.products').as('localizadorProductos')
+
         //Find
-        cy.get('.products').find('.product').should('have.length',4)
+        cy.get('@localizadorProductos').find('.product').should('have.length',4)
 
         //Eq, Contains y Click
-        cy.get('.products').find('.product').eq(2).contains('ADD TO CART').click()
+        cy.get('@localizadorProductos').find('.product').eq(2).contains('ADD TO CART').click()
 
         //Each
-        cy.get('.products').find('.product').each(($elemento,posicion,$lista)=>{
+        cy.get('@localizadorProductos').find('.product').each(($elemento,posicion,$lista)=>{
 
             const nombre_articulo = $elemento.find('h4.product-name').text()
 
