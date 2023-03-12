@@ -32,7 +32,11 @@ describe('Mi primera prueba',function(){
             }
             
         })
-
+        
+        //Then
+        cy.get('.brand').then(function(elemento){
+            cy.log(elemento.text())
+        })
     
     })
 
